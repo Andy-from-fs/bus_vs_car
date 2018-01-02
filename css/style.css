@@ -1,0 +1,69 @@
+body {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.p1 {
+  position: relative;
+}
+
+.p1 .title {
+  position: absolute;
+  top: 3.48%;
+  left: 0;
+}
+
+.p1 .car {
+  position: absolute;
+  bottom: 27%;
+  left: 0;
+  z-index: 4;
+  transform: scale(0);
+  transition: transform 1s ease-out,bottom 1s ease-out;
+}
+
+.p1 .vs {
+  width: 54%;
+  position: absolute;
+  left: 42.667%;
+  top: 38.8%;
+  z-index: 2;
+  animation-duration: .1s;
+}
+
+.p1 .start {
+  width: 56%;
+  position: absolute;
+  left: 22%;
+  top: 83.83%;
+}
+
+.p2 {
+  position: relative;
+}
+
+.p2 .car-3-wrapper {
+  height: 11.11%;
+  position: absolute;
+  top: 24.21%;
+  left: 0;
+}
+
+.p2 .car-3 {
+  position: relative;
+}
+
+.tech {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  font-size: 1rem;
+  color: white;
+  width: 11rem;
+  text-align: center;
+  margin-left: -5.5rem;
+}
