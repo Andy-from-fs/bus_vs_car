@@ -37,11 +37,35 @@ $(".p2 .car-3-wrapper .bd ul li").css(
   "width",
   $(window).height() * 0.1111 * 825 / 134
 );
+$(".p2 .car-2-wrapper .bd ul li").css(
+  "width",
+  $(window).height() * 0.1451 * 755 / 175
+);
+$(".p2 .car-1-wrapper .bd ul li").css(
+  "width",
+  $(window).height() * 0.1252 * 1310 / 152
+);
 $(".car-3-wrapper").slide({
   mainCell: ".bd ul",
   autoPlay: true,
   effect: "leftMarquee",
   interTime: 150,
+  trigger:"click",
+  easing:"easeInQuint"
+});
+$(".car-2-wrapper").slide({
+  mainCell: ".bd ul",
+  autoPlay: true,
+  effect: "leftMarquee",
+  interTime: 200,
+  trigger:"click",
+  easing:"easeInQuint"
+});
+$(".car-1-wrapper").slide({
+  mainCell: ".bd ul",
+  autoPlay: true,
+  effect: "leftMarquee",
+  interTime: 110,
   trigger:"click",
   easing:"easeInQuint"
 });
