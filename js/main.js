@@ -5,6 +5,9 @@ $.fn.extend({
     if (typeof option.time !== "number") {
       option.time = 900;
     }
+    setTimeout(function () {
+    $(this).removeClass(option.method);
+    },1000)
     setTimeout(function() {
       option.callBack.call(option.context);
     }, option.time);
@@ -43,7 +46,6 @@ function p1Init() {
     });
   });
 }
-// p1Init();
 
 //footer
 $("body").on("click", ".tech", function() {
@@ -71,7 +73,7 @@ function p2Init() {
     "width",
     $(window).height() * 0.1252 * 1310 / 152
   );
-  $(".car-3-wrapper").slide({
+  $(".p2 .car-3-wrapper").slide({
     mainCell: ".bd ul",
     autoPlay: true,
     effect: "leftMarquee",
@@ -79,7 +81,7 @@ function p2Init() {
     // trigger:"click",
     easing: "easeInQuint"
   });
-  $(".car-2-wrapper").slide({
+  $(".p2 .car-2-wrapper").slide({
     mainCell: ".bd ul",
     autoPlay: true,
     effect: "leftMarquee",
@@ -87,7 +89,7 @@ function p2Init() {
     // trigger:"click",
     easing: "easeInQuint"
   });
-  $(".car-1-wrapper").slide({
+  $(".p2 .car-1-wrapper").slide({
     mainCell: ".bd ul",
     autoPlay: true,
     effect: "leftMarquee",
@@ -95,4 +97,63 @@ function p2Init() {
     // trigger:"click",
     easing: "easeInQuint"
   });
+  $('.p2 .next').click(function(e){
+    $('.p2').animateCss({
+      method:"fadeOut",
+      callBack:function(){
+        $('.p2').addClass('hidden');
+        $(".p3").removeClass("hidden");
+        setTimeout(function(){
+          p3Init();
+        },800);
+      },
+      context:this
+    })
+  });
 }
+
+//p3
+function p3Init() {
+  $('.p3 .next').removeClass('hidden');
+  $(".p3 .car-1-wrapper").slide({
+    mainCell: ".bd ul",
+    autoPlay: true,
+    effect: "topMarquee",
+    vis: 3,
+    interTime: 150,
+    trigger: "click",
+    easing: "easeInQuint"
+  });
+  $(".p3 .car-2-wrapper").slide({
+    mainCell: ".bd ul",
+    autoPlay: true,
+    effect: "topMarquee",
+    vis: 3,
+    interTime: 180,
+    trigger: "click",
+    easing: "easeInQuint"
+  });
+  // var busPos=$('.p3 .bus').css('top');
+  anime({
+    targets: ".p3 .bus",
+    top: -0.41 * $(window).height() + "px",
+    loop: true,
+    duration: 1500,
+    easing: "easeInQuad",
+    elasticity: 0,
+    autoPlay:false,
+  });
+}
+
+//p4
+// function p4Init(){
+//   var p4=anime.timeline()
+//   p4.add({targets:})
+// }
+
+
+
+// p1Init();
+// setTimeout(function(){
+//   p3Init();
+// },1000)

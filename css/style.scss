@@ -75,6 +75,118 @@ body {
   }
 }
 
+.p3 {
+  position: relative;
+  .title {
+    position: absolute;
+    top: 1%;
+    left: 0;
+    z-index: 10;
+  }
+  .wrapper {
+    width: 14.667%;
+    height: 68.77%;
+    overflow: hidden;
+    .bd {
+      width: 100%;
+      height: 100%;
+      .tempWrap{
+       height: 100%!important; 
+      }
+    }
+    li>img {
+      padding: 1.5rem 0;
+    }
+  }
+  .car-1-wrapper {
+    position: absolute;
+    top: 0;
+    left: 11.5%;
+  }
+  .car-2-wrapper {
+    position: absolute;
+    top: 0;
+    left:43%;
+  }
+  .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+  }
+  .bus{
+    position: absolute;
+    top: 69%;
+    left: 72%;
+    width: 19.73%;
+    height: 40.6%;
+  }
+}
+
+.p4{
+  position: relative;
+  .title{
+    position: absolute;
+    top:1%;
+    left: 0;
+  }
+  .bus{
+    position: absolute;
+    width: 47.6%;
+    height: 31.76%;
+    left: 2%;
+    top: 27.28%;
+  }
+  .car{
+    position: absolute;
+  }
+  .car-first{
+    z-index: 8;
+  }
+  .car-second{
+    z-index: 7;
+  }
+  .car-third{
+    z-index: 6;
+  }
+  .car-1{
+    width: 27.2%;
+    height: 14.08%;
+    left: 48.53%;
+    top: 44.03%;
+  }
+  .car-2{
+    width: 23.6%;
+    height: 12.01%;
+    left: 75.73%;
+    top: 44.49%;
+  }
+  .car-3{
+    width: 21.33%;
+    height: 10.44%;
+    left: 50.8%;
+    top: 36.87%;
+  }
+  .car-4{
+    width: 20.93%;
+    height: 9.94%;
+    left: 75.07%;
+    top: 37.53%;
+  }
+  .car-5{
+    width: 17.6%;
+    height: 8.95%;
+    left: 54.53%;
+    top: 30.57%;
+  }
+  .car-6{
+    width: 17.6%;
+    height: 8.53%;
+    left: 74.53%;
+    top: 30.9%;
+  }
+}
+
 .tech {
   position: absolute;
   bottom: 10px;
@@ -92,5 +204,5 @@ body {
   position: absolute;
   bottom: 2.3%;
   left: 32.4%;
-  z-index: 10;
+  z-index: 15;
 }
