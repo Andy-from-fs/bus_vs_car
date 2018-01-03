@@ -49,8 +49,8 @@ $(".car-3-wrapper").slide({
   mainCell: ".bd ul",
   autoPlay: true,
   effect: "leftMarquee",
-  interTime: 150,
-  trigger:"click",
+  interTime: 100,
+  // trigger:"click",
   easing:"easeInQuint"
 });
 $(".car-2-wrapper").slide({
@@ -58,15 +58,15 @@ $(".car-2-wrapper").slide({
   autoPlay: true,
   effect: "leftMarquee",
   interTime: 200,
-  trigger:"click",
+  // trigger:"click",
   easing:"easeInQuint"
 });
 $(".car-1-wrapper").slide({
   mainCell: ".bd ul",
   autoPlay: true,
   effect: "leftMarquee",
-  interTime: 110,
-  trigger:"click",
+  interTime: 150,
+  // trigger:"click",
   easing:"easeInQuint"
 });
 // $(".car-3-wrapper").click(function(e){

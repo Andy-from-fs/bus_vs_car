@@ -46,6 +46,11 @@ body {
   position: relative;
 }
 
+.p2 .wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
 .p2 .car-3-wrapper {
   height: 11.11%;
   position: absolute;
@@ -67,6 +72,13 @@ body {
   left: 0;
 }
 
+.p2 .cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
 .tech {
   position: absolute;
   bottom: 10px;
@@ -76,4 +88,13 @@ body {
   width: 11rem;
   text-align: center;
   margin-left: -5.5rem;
+  z-index: 10;
+}
+
+.next {
+  width: 30%;
+  position: absolute;
+  bottom: calc(1.3% + 2rem);
+  left: 35%;
+  z-index: 10;
 }
