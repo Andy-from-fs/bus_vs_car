@@ -295,6 +295,7 @@ body {
 }
 
 .p7 {
+  position: relative;
   .bus-trophy {
     width: 100%;
     position: absolute;
@@ -345,6 +346,27 @@ body {
   }
   100% {
     transform: rotate(1turn) scale(2);
+  }
+}
+
+.p8{
+  position: relative;
+  .icon-wrapper{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 25.18%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    .icon{
+      width: 27%;
+      margin-bottom:5%;
+      opacity: 0; 
+      transform: translateX(-380%);
+      transition: transform ease-in .5s,opacity ease-in .5s;
+    }
   }
 }
 

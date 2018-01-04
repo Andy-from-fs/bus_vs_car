@@ -14,7 +14,7 @@ $.fn.extend({
     return $(this);
   },
 
-  //list:ele,css,show,offset,callBack,callBackTime,context
+  //list:ele,css,show,offset,callBack,callBackTime,context,anime
   playAnimation: function (innerTime, callBack) {
     if (typeof innerTime !== "number") innerTime = 800;
     var time = 0;
@@ -65,7 +65,7 @@ function p1Init() {
     $(".tech").removeClass("hidden");
     $(".sponsor").removeClass("hidden");
   }, 1000);
-  $(".start").click(function (e) {
+  $(".start").one('click', function (e) {
     $(".p1").animateCss({
       method: "fadeOut",
       time: 500,
@@ -129,7 +129,7 @@ function p2Init() {
     // trigger:"click",
     easing: "easeInQuint"
   });
-  $(".p2 .next").click(function (e) {
+  $(".p2 .next").one('click', function (e) {
     $(".p2").animateCss({
       method: "fadeOut",
       callBack: function () {
@@ -148,7 +148,7 @@ function p2Init() {
 //p3
 function p3Init() {
   $(".p3 .next").removeClass("hidden");
-  $(".p3 .next").click(function () {
+  $(".p3 .next").one('click', function () {
     $(".p3").animateCss({
       method: "fadeOut",
       callBack: function () {
@@ -251,7 +251,7 @@ function p4Init() {
       valueOfElement.css.transform = "scale(1)";
   });
   $(animationList).playAnimation(800);
-  $(parent + '.next').click(function (e) {
+  $(parent + '.next').one('click', function (e) {
     $(".p4").animateCss({
       method: "fadeOut",
       callBack: function () {
@@ -328,7 +328,7 @@ function p5Init() {
   });
   $(animationList).playAnimation(500);
 
-  $(parent + '.next').click(function (e) {
+  $(parent + '.next').one('click', function (e) {
     $(".p5").animateCss({
       method: "fadeOut",
       callBack: function () {
@@ -384,16 +384,13 @@ function p6Init() {
     direction: 'alternate',
   })
 
-  $(parent + '.next').click(function (e) {
+  $(parent + '.next').one('click', function (e) {
     $(".p6").animateCss({
       method: "fadeOut",
       callBack: function () {
         $(".p6").addClass("hidden");
         $(".p7").removeClass("hidden");
-        // $('body').css('background-color', '#5a8b3d');
-        // setTimeout(function () {
-        //   p7Init();
-        // }, 800);
+        p7Init();
       },
       context: this
     });
@@ -401,10 +398,57 @@ function p6Init() {
 }
 
 function p7Init() {
-  var parent='.p7 '
+  var parent = '.p7 '
+  $(parent + '.next').one('click', function (e) {
+    $(".p7").animateCss({
+      method: "fadeOut",
+      callBack: function () {
+        $(".p7").addClass("hidden");
+        $(".p8").removeClass("hidden");
+        setTimeout(function () {
+          p8Init();
+        }, 800)
+      },
+      context: this
+    });
+  })
 }
 
-p1Init();
-// setTimeout(function () {
-//   p7Init();
-// }, 1000);
+function p8Init() {
+  var parent = '.p8 ',
+    animationList = [{
+      ele: parent + '.icon1',
+    }, {
+      ele: parent + '.icon2',
+    }, {
+      ele: parent + '.icon3',
+    }, {
+      ele: parent + '.icon4',
+    }, {
+      ele: parent + '.icon5',
+    }, {
+      ele: parent + '.icon6',
+    }, {
+      ele: parent + '.icon7',
+    }, {
+      ele: parent + '.icon8',
+    }, {
+      ele: parent + '.icon9',
+    }];
+  $.each(animationList, function (indexInArray, valueOfElement) {
+    valueOfElement.css = {
+      transform: 'translateX(0)',
+      opacity: 1
+    }
+    if (indexInArray !== 0)
+      valueOfElement.offset = 100;
+  });
+
+  $(animationList).playAnimation(500);
+
+}
+
+// p1Init();
+setTimeout(function () {
+  p8Init();
+}, 1000);
