@@ -218,6 +218,10 @@ body {
     // position: absolute;
     // left:  16%;
     // bottom: calc(71% + 5rem);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
     text-align: center;
     font: {
@@ -229,6 +233,10 @@ body {
   .bus-word{
     text-align: center;
     opacity: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     // position: absolute;
     // left:  71.73%;
     // bottom:calc(73% + 3rem);
@@ -237,6 +245,53 @@ body {
       size:2.2rem;
     }
     color: rgb(150, 146, 146);
+  }
+}
+
+.p6{
+  position: relative;
+  .wrapper{
+    position: absolute;
+    z-index: 5;
+  }
+  .bus-wrapper{
+    top: 0;
+    left: 0;
+    border-bottom: white 10px solid;
+    .bus{
+      width: 51.33%;
+      position: absolute;
+      bottom: 0;
+      left: 18.67%;
+      z-index: 10;
+    }
+    .bus-cloud{
+      width: 20.67%;
+      position: absolute;
+      top: 65%;
+      left: 72.53%;
+      z-index: 10;
+    }
+  }
+  .car-wrapper{
+    top: 33.89%;
+    left: 0;
+    .car{
+      position: absolute;
+      top:55.95%;
+      left: 0;
+      z-index: 10;
+    }
+    .car-cloud{
+      z-index: 10;
+      position: absolute;
+      top: 8.5%;
+      left: 0;
+    }
+  }
+  .content{
+    position: relative;
+    z-index: 10;
   }
 }
 

@@ -241,6 +241,10 @@ body {
 }
 
 .p5 .car-word {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   text-align: center;
   font-family: "汉仪铸字木头";
@@ -251,9 +255,68 @@ body {
 .p5 .bus-word {
   text-align: center;
   opacity: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   font-family: "汉仪铸字木头";
   font-size: 2.2rem;
   color: #969292;
+}
+
+.p6 {
+  position: relative;
+}
+
+.p6 .wrapper {
+  position: absolute;
+  z-index: 5;
+}
+
+.p6 .bus-wrapper {
+  top: 0;
+  left: 0;
+  border-bottom: white 10px solid;
+}
+
+.p6 .bus-wrapper .bus {
+  width: 51.33%;
+  position: absolute;
+  bottom: 0;
+  left: 18.67%;
+  z-index: 10;
+}
+
+.p6 .bus-wrapper .bus-cloud {
+  width: 20.67%;
+  position: absolute;
+  top: 65%;
+  left: 72.53%;
+  z-index: 10;
+}
+
+.p6 .car-wrapper {
+  top: 33.89%;
+  left: 0;
+}
+
+.p6 .car-wrapper .car {
+  position: absolute;
+  top: 55.95%;
+  left: 0;
+  z-index: 10;
+}
+
+.p6 .car-wrapper .car-cloud {
+  z-index: 10;
+  position: absolute;
+  top: 8.5%;
+  left: 0;
+}
+
+.p6 .content {
+  position: relative;
+  z-index: 10;
 }
 
 .tech {

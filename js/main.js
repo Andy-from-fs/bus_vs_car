@@ -182,7 +182,7 @@ function p3Init() {
     easing: "easeInQuint"
   });
   // var busPos=$('.p3 .bus').css('top');
-  setTimeout(function(){
+  setTimeout(function () {
     anime({
       targets: ".p3 .bus",
       top: -0.41 * $(window).height() + "px",
@@ -191,7 +191,7 @@ function p3Init() {
       easing: "easeInQuad",
       elasticity: 0,
     });
-  },300);
+  }, 300);
 }
 
 //p4
@@ -327,15 +327,66 @@ function p5Init() {
     }
   });
   $(animationList).playAnimation(500);
+
+  $(parent+'.next').click(function(e){
+    $(".p5").animateCss({
+      method: "fadeOut",
+      callBack: function () {
+        $(".p5").addClass("hidden");
+        $(".p6").removeClass("hidden");
+        $('body').css('background-color','#5a8b3d');
+        setTimeout(function () {
+          p6Init();
+        }, 800);
+      },
+      context: this
+    });
+  });
 }
 
 //p6
-function p6Init(){
-  
+function p6Init() {
+  var parent = '.p6 '
+  $(parent + ".car-wrapper").slide({
+    mainCell: ".bd ul",
+    autoPlay: true,
+    effect: "leftMarquee",
+    interTime: 70,
+    // trigger:"click",
+    easing: "easeInQuint",
+    opp: true
+  });
+  $(parent + ".bus-wrapper").slide({
+    mainCell: ".bd ul",
+    autoPlay: true,
+    effect: "leftMarquee",
+    interTime: 10,
+    // trigger:"click",
+    easing: "easeInQuint",
+    opp: true
+  });
+  anime({
+    targets: parent + '.bus-cloud',
+    translateY: -10,
+    elasticity: 0,
+    easing: 'easeOutQuad',
+    duration: 200,
+    loop: true,
+    direction: 'alternate',
+  })
+  anime({
+    targets: parent + '.car-cloud',
+    translateY: -3,
+    elasticity: 0,
+    easing: 'easeOutQuad',
+    duration: 800,
+    loop: true,
+    direction: 'alternate',
+  })
 }
 
 
-// p1Init();
-setTimeout(function () {
-  p6Init();
-}, 1000);
+p1Init();
+// setTimeout(function () {
+  // p6Init();
+// }, 1000);
