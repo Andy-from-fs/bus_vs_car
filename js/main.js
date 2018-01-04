@@ -328,13 +328,13 @@ function p5Init() {
   });
   $(animationList).playAnimation(500);
 
-  $(parent+'.next').click(function(e){
+  $(parent + '.next').click(function (e) {
     $(".p5").animateCss({
       method: "fadeOut",
       callBack: function () {
         $(".p5").addClass("hidden");
         $(".p6").removeClass("hidden");
-        $('body').css('background-color','#5a8b3d');
+        $('body').css('background-color', '#5a8b3d');
         setTimeout(function () {
           p6Init();
         }, 800);
@@ -383,10 +383,28 @@ function p6Init() {
     loop: true,
     direction: 'alternate',
   })
+
+  $(parent + '.next').click(function (e) {
+    $(".p6").animateCss({
+      method: "fadeOut",
+      callBack: function () {
+        $(".p6").addClass("hidden");
+        $(".p7").removeClass("hidden");
+        // $('body').css('background-color', '#5a8b3d');
+        // setTimeout(function () {
+        //   p7Init();
+        // }, 800);
+      },
+      context: this
+    });
+  });
 }
 
+function p7Init() {
+  var parent='.p7 '
+}
 
 p1Init();
 // setTimeout(function () {
-  // p6Init();
+//   p7Init();
 // }, 1000);
