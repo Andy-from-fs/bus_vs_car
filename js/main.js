@@ -398,6 +398,7 @@ function p6Init() {
   });
 }
 
+//p7
 function p7Init() {
   var parent = '.p7 '
   $(parent + '.next').one('click', function (e) {
@@ -415,6 +416,7 @@ function p7Init() {
   })
 }
 
+//p8
 function p8Init() {
   var parent = '.p8 ',
     animationList = [{
@@ -465,6 +467,7 @@ function p8Init() {
   })
 }
 
+//p9
 function p9Init() {
   var parent = '.p9 ';
   $(parent + '.btn-share').click(function () {
