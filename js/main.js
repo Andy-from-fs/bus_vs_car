@@ -369,6 +369,8 @@ function p6Init() {
   anime({
     targets: parent + '.bus-cloud',
     translateY: -10,
+    scaleY:1.1,
+    scaleX:.9,
     elasticity: 0,
     easing: 'easeOutQuad',
     duration: 200,
@@ -378,6 +380,8 @@ function p6Init() {
   anime({
     targets: parent + '.car-cloud',
     translateY: -3,
+    scaleY:1.02,
+    scaleX:.98,
     elasticity: 0,
     easing: 'easeOutQuad',
     duration: 800,
@@ -489,7 +493,7 @@ $('body').on('click', '#share', function () {
   })
 });
 
-p1Init();
-// setTimeout(function () {
-//   p9Init();
-// }, 1000);
+// p1Init();
+setTimeout(function () {
+  p6Init();
+}, 1000);
