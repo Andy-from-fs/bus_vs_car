@@ -1,4 +1,5 @@
 $.fn.extend({
+  //option
   animateCss: function (option) {
     $(this).addClass(option.method);
     // console.log(option.time)
@@ -434,21 +435,58 @@ function p8Init() {
       ele: parent + '.icon8',
     }, {
       ele: parent + '.icon9',
+    }, {
+      ele: parent + '.next',
+      show: true
     }];
   $.each(animationList, function (indexInArray, valueOfElement) {
-    valueOfElement.css = {
-      transform: 'translateX(0)',
-      opacity: 1
-    }
+    if (indexInArray < animationList.length - 1)
+      valueOfElement.css = {
+        transform: 'translateX(0)',
+        opacity: 1
+      }
     if (indexInArray !== 0)
       valueOfElement.offset = 100;
   });
 
   $(animationList).playAnimation(500);
-
+  $(parent + '.next').one('click', function (e) {
+    $(".p8").animateCss({
+      method: "fadeOut",
+      callBack: function () {
+        $(".p8").addClass("hidden");
+        $(".p9").removeClass("hidden");
+        setTimeout(function () {
+          p9Init();
+        }, 800)
+      },
+      context: this
+    });
+  })
 }
 
-// p1Init();
-setTimeout(function () {
-  p8Init();
-}, 1000);
+function p9Init() {
+  var parent = '.p9 ';
+  $(parent + '.btn-share').click(function () {
+    $('#share').removeClass('hidden');
+  })
+  $(parent + '.again').click(function () {
+    window.location.reload();
+  })
+}
+
+$('body').on('click', '#share', function () {
+  $('#share').animateCss({
+    method: "fadeOut",
+    time: 500,
+    callBack: function () {
+      $("#share").addClass("hidden").removeClass('fadeOut');
+    },
+    context: this
+  })
+});
+
+p1Init();
+// setTimeout(function () {
+//   p9Init();
+// }, 1000);
