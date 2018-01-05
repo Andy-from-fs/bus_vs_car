@@ -95,22 +95,117 @@ $rooturl='../addons/citygf/template/mobile/fsnews/2018/busVsCar/';
     <title>{php echo $temParams['title']}</title>
     <meta name="description" content="{php echo $temParams['description']}" />
     <meta name="keywords" content="{php echo $temParams['title']}" />
+    <style>
+      .loading {
+        position: fixed;
+        z-index: 150;
+        width: 100%;
+        height: 100%;
+        background: #282828;
+      }
+
+      .loading-wrapper {
+        position: absolute;
+        top: 38.2%;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      .loading .icon {
+        font-size: 1.8rem;
+        color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 5px 0;
+      }
+
+      .loading .icon::before {
+        content: "";
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        background: url({php echo $rooturl}image/p9/share-icon.png) no-repeat border-box;
+        background-size: auto 100%;
+        margin-right: 5px;
+        animation: myMove infinite 1.3s;
+      }
+
+      .progress {
+        width: 10rem;
+        height: 8px;
+        background: whitesmoke;
+        border: 2px solid black;
+        border-radius: 4px;
+        position: relative;
+        left: 50%;
+        margin-left: -5rem;
+      }
+
+      .progress-in {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        background: #04be02;
+        transition: width 1s ease-out;
+      }
+
+      @-webkit-keyframes myMove {
+        0% {
+          -webkit-transform: scaleX(0) scaleX(0) translateY(0px);
+        }
+        100% {
+          -webkit-transform: scaleX(0.9) scaleX(1.1) translateY(5px);
+        }
+      }
+
+      @-moz-keyframes myMove {
+        0% {
+          -moz-transform: scaleX(0) scaleX(0) translateY(0px);
+        }
+        100% {
+          -moz-transform: scaleX(0.9) scaleX(1.1) translateY(5px);
+        }
+      }
+
+      @keyframes myMove {
+        0% {
+          transform: scaleX(1) scaleY(1) translateY(0px);
+        }
+        90% {
+          transform: scaleX(0.95) scaleY(1.05) translateY(-1px);
+        }
+        95% {
+          transform: scaleX(1.02) scaleY(0.98) translateY(0px);
+        }
+        100% {
+          transform: scaleX(1) scaleY(1) translateY(0px);
+        }
+      }
+    </style>
     <link rel="stylesheet" href="{php echo $rooturl}css/reset.min.css">
     <link rel="stylesheet" href="{php echo $rooturl}css/style.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
   </head>
 
   <body>
-      <div class="loading fadeIn animated">
-          <div class="loading-wrapper">
-            <div class="icon">
-              <span>加载中~</span>
-            </div>
-            <div class="progress">
-              <div class="progress-in" id="progress-in"></div>
-            </div>
-          </div>
+    <div class="loading fadeIn animated">
+      <div class="loading-wrapper">
+        <div class="icon">
+          <span>加载中~</span>
         </div>
+        <div class="progress">
+          <div class="progress-in" id="progress-in"></div>
+        </div>
+      </div>
+    </div>
     <div class="p1 page animated fadeIn hidden">
       <img src="{php echo $rooturl}image/p1/bg.jpg" width="100%" class="bg">
       <img src="{php echo $rooturl}image/p1/title.png" width="100%" class="title bounceInDown animated">
@@ -300,65 +395,82 @@ $rooturl='../addons/citygf/template/mobile/fsnews/2018/busVsCar/';
     <script src="http://www.foshannews.net/js/vconsole.min.js" remote="yes" ignoreapd="1"></script>
 
     <script src="http://www.foshannews.net/js/resLoader.js" remote="yes"></script>
-  <script>
-    //预加载
-    var loader = new resLoader({
-      resources: [
-        '{php echo $rooturl}css/reset.min.css', "{php echo $rooturl}css/style.css", "https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css",
-        "{php echo $rooturl}image/p1/bg.jpg", "{php echo $rooturl}image/p1/title.png", "{php echo $rooturl}image/p1/sponsor.png", "{php echo $rooturl}image/p1/car.png",
-        "{php echo $rooturl}image/p1/vs.png", "{php echo $rooturl}image/p1/btn-start.png", "{php echo $rooturl}image/p2/bg.jpg", "{php echo $rooturl}image/p2/car-3.png",
-        "{php echo $rooturl}image/p2/car-2.png", "{php echo $rooturl}image/p2/car-1.png", "{php echo $rooturl}image/p2/cloud.png", "{php echo $rooturl}image/btn-next-page.png",
-        "{php echo $rooturl}image/p3/bg.jpg", "{php echo $rooturl}image/p3/title.png", "{php echo $rooturl}image/p3/content.png", "{php echo $rooturl}image/p3/car-a.png",
-        "{php echo $rooturl}image/p3/car-b.png", "{php echo $rooturl}image/p3/car-c.png", "{php echo $rooturl}image/p3/car-d.png", "{php echo $rooturl}image/p3/bus.png",
-        "{php echo $rooturl}image/p4/bg.jpg", "{php echo $rooturl}image/p4/title.png", "{php echo $rooturl}image/p4/bus.png", "{php echo $rooturl}image/p4/car-blue.png",
-        "{php echo $rooturl}image/p4/car-green.png", "{php echo $rooturl}image/p5/bg.jpg", "{php echo $rooturl}image/p5/title.png", "{php echo $rooturl}image/p5/content.png",
-        "{php echo $rooturl}image/p5/car.png", "{php echo $rooturl}image/p3/bus.png", "{php echo $rooturl}image/p6/title.png", "{php echo $rooturl}image/p6/bus.png",
-        "{php echo $rooturl}image/p6/bus-cloud.png", "{php echo $rooturl}image/p6/bus-bg.jpg", "{php echo $rooturl}image/p6/car-cloud.png", "{php echo $rooturl}image/p6/car.png",
-        "{php echo $rooturl}image/p6/car-bg.jpg", "{php echo $rooturl}image/p6/content.png", "{php echo $rooturl}image/p7/bg.jpg", "{php echo $rooturl}image/p7/bus-trophy.png",
-        "{php echo $rooturl}image/p7/grove.png", "{php echo $rooturl}image/btn-next-page.png", "{php echo $rooturl}image/p8/bg.jpg", "{php echo $rooturl}image/p8/1.png",
-        "{php echo $rooturl}image/p8/2.png", "{php echo $rooturl}image/p8/3.png", "{php echo $rooturl}image/p8/7.png", "{php echo $rooturl}image/p8/6.png", "{php echo $rooturl}image/p8/5.png",
-        "{php echo $rooturl}image/p8/4.png", "{php echo $rooturl}image/p8/8.png", "{php echo $rooturl}image/p8/9.png", "{php echo $rooturl}image/p9/cartoon.gif",
-        "{php echo $rooturl}image/p9/share.png", "{php echo $rooturl}image/p9/again.png", "{php echo $rooturl}image/p9/share-icon.png",
-        "https://cdn.bootcss.com/hammer-time/1.1.0/hammer-time.min.js",
-        "https://cdn.bootcss.com/animejs/2.2.0/anime.min.js",
-        "https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js", "{php echo $rooturl}js/jquery.SuperSlide.2.1.1.js", "{php echo $rooturl}js/audio.js",
-        "{php echo $rooturl}js/main.js"
-      ],
-      onStart: function (total) {
-        console.log('start:' + total);
-      },
-      onProgress: function (current, total) {
-        var percent = Math.round(current / total * 10000) / 100;
-        // console.log(percent);
-        if (percent < 80)
-          document.querySelector('.progress-in').style.width = percent + '%';
-      },
-      onComplete: function (total) {
-        document.querySelector('.progress-in').style.width = 100 + '%';
-        setTimeout(function () {
-          $('.loading').animateCss({
-            method: "fadeOut",
-            callBack: function () {
-              document.querySelector('.loading').classList.add('hidden');
-              document.querySelector('.p1').classList.remove('hidden');
-              p1Init();
-            },
-            time: 500,
-            context: this
-          })
-        }, 1000);
-      }
-    });
+    <script>
+      //预加载
+      var loader = new resLoader({
+        resources: [
+          '{php echo $rooturl}css/reset.min.css', "{php echo $rooturl}css/style.css",
+          "https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css",
+          "{php echo $rooturl}image/p1/bg.jpg", "{php echo $rooturl}image/p1/title.png",
+          "{php echo $rooturl}image/p1/sponsor.png", "{php echo $rooturl}image/p1/car.png",
+          "{php echo $rooturl}image/p1/vs.png", "{php echo $rooturl}image/p1/btn-start.png",
+          "{php echo $rooturl}image/p2/bg.jpg", "{php echo $rooturl}image/p2/car-3.png",
+          "{php echo $rooturl}image/p2/car-2.png", "{php echo $rooturl}image/p2/car-1.png",
+          "{php echo $rooturl}image/p2/cloud.png", "{php echo $rooturl}image/btn-next-page.png",
+          "{php echo $rooturl}image/p3/bg.jpg", "{php echo $rooturl}image/p3/title.png",
+          "{php echo $rooturl}image/p3/content.png", "{php echo $rooturl}image/p3/car-a.png",
+          "{php echo $rooturl}image/p3/car-b.png", "{php echo $rooturl}image/p3/car-c.png",
+          "{php echo $rooturl}image/p3/car-d.png", "{php echo $rooturl}image/p3/bus.png",
+          "{php echo $rooturl}image/p4/bg.jpg", "{php echo $rooturl}image/p4/title.png",
+          "{php echo $rooturl}image/p4/bus.png", "{php echo $rooturl}image/p4/car-blue.png",
+          "{php echo $rooturl}image/p4/car-green.png", "{php echo $rooturl}image/p5/bg.jpg",
+          "{php echo $rooturl}image/p5/title.png", "{php echo $rooturl}image/p5/content.png",
+          "{php echo $rooturl}image/p5/car.png", "{php echo $rooturl}image/p3/bus.png",
+          "{php echo $rooturl}image/p6/title.png", "{php echo $rooturl}image/p6/bus.png",
+          "{php echo $rooturl}image/p6/bus-cloud.png", "{php echo $rooturl}image/p6/bus-bg.jpg",
+          "{php echo $rooturl}image/p6/car-cloud.png", "{php echo $rooturl}image/p6/car.png",
+          "{php echo $rooturl}image/p6/car-bg.jpg", "{php echo $rooturl}image/p6/content.png",
+          "{php echo $rooturl}image/p7/bg.jpg", "{php echo $rooturl}image/p7/bus-trophy.png",
+          "{php echo $rooturl}image/p7/grove.png", "{php echo $rooturl}image/btn-next-page.png",
+          "{php echo $rooturl}image/p8/bg.jpg", "{php echo $rooturl}image/p8/1.png",
+          "{php echo $rooturl}image/p8/2.png", "{php echo $rooturl}image/p8/3.png",
+          "{php echo $rooturl}image/p8/7.png", "{php echo $rooturl}image/p8/6.png",
+          "{php echo $rooturl}image/p8/5.png",
+          "{php echo $rooturl}image/p8/4.png", "{php echo $rooturl}image/p8/8.png",
+          "{php echo $rooturl}image/p8/9.png", "{php echo $rooturl}image/p9/cartoon.gif",
+          "{php echo $rooturl}image/p9/share.png", "{php echo $rooturl}image/p9/again.png",
+          "{php echo $rooturl}image/p9/share-icon.png",
+          "https://cdn.bootcss.com/hammer-time/1.1.0/hammer-time.min.js",
+          "https://cdn.bootcss.com/animejs/2.2.0/anime.min.js",
+          "https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js",
+          "{php echo $rooturl}js/jquery.SuperSlide.2.1.1.js", "{php echo $rooturl}js/audio.js",
+          "{php echo $rooturl}js/main.js"
+        ],
+        onStart: function (total) {
+          console.log('start:' + total);
+        },
+        onProgress: function (current, total) {
+          var percent = Math.round(current / total * 10000) / 100;
+          // console.log(percent);
+          if (percent < 80)
+            document.querySelector('.progress-in').style.width = percent + '%';
+        },
+        onComplete: function (total) {
+          document.querySelector('.progress-in').style.width = 100 + '%';
+          setTimeout(function () {
+            $('.loading').animateCss({
+              method: "fadeOut",
+              callBack: function () {
+                document.querySelector('.loading').classList.add('hidden');
+                document.querySelector('.p1').classList.remove('hidden');
+                p1Init();
+              },
+              time: 500,
+              context: this
+            })
+          }, 1000);
+        }
+      });
 
-    loader.start();
-  </script>
+      loader.start();
+    </script>
 
     <script src="https://cdn.bootcss.com/hammer-time/1.1.0/hammer-time.min.js"></script>
     <script src="https://cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{php echo $rooturl}js/jquery.SuperSlide.2.1.1.js"></script>
-    <script src="{php echo $rooturl}js/audio.min.js"></script>
-    <script src="{php echo $rooturl}js/main.min.js"></script>
+    <script src="{php echo $rooturl}js/audio.js"></script>
+    <script src="{php echo $rooturl}js/main.js"></script>
 
 
 
