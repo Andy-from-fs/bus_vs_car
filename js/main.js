@@ -144,6 +144,7 @@ function p2Init() {
           p3Init();
         }, 800);
       },
+      time:500,
       context: this
     });
   });
@@ -163,6 +164,7 @@ function p3Init() {
           p4Init();
         }, 800);
       },
+      time:500,
       context: this
     });
   });
@@ -267,6 +269,7 @@ function p4Init() {
           p5Init();
         }, 800);
       },
+      time:500,
       context: this
     });
   })
@@ -346,6 +349,7 @@ function p5Init() {
           p6Init();
         }, 800);
       },
+      time:500,
       context: this
     });
   });
@@ -404,6 +408,7 @@ function p6Init() {
         audio.change(audioList[6]);
         p7Init();
       },
+      time:500,
       context: this
     });
   });
@@ -423,6 +428,7 @@ function p7Init() {
           p8Init();
         }, 800)
       },
+      time:500,
       context: this
     });
   })
@@ -475,6 +481,7 @@ function p8Init() {
           p9Init();
         }, 800)
       },
+      time:500,
       context: this
     });
   })
@@ -503,12 +510,12 @@ $('body').on('click', '#share', function () {
   })
 });
 
-p1Init();
+// p1Init();
 // setTimeout(function() {
   //   p6Init();
   // }, 1000);
   
-  var audioList = ['./audio/P1.mp3', './audio/P2.mp3', './audio/P3.mp3', './audio/P4.mp3', './audio/P5.mp3', './audio/P6.mp3', './audio/P7.mp3', './audio/P8.mp3','./audio/P1.mp3'];
+  var audioList = [root+'audio/P1.mp3', root+'audio/P2.mp3', root+'audio/P3.mp3', root+'audio/P4.mp3', root+'audio/P5.mp3', root+'audio/P6.mp3', root+'audio/P7.mp3', root+'audio/P8.mp3',root+'audio/P1.mp3'];
   var audio=new audiojs(audioList[0]);
   console.log(audio);
   

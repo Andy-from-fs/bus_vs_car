@@ -446,7 +446,7 @@ img.content {
   top: 3%;
   right: 3%;
   z-index: 100;
-  transition: background-image .5s ease-in;
+  transition: background-image 0.5s ease-in;
 }
 .music-icon.play {
   background-image: url(../image/music-on.png);
@@ -461,41 +461,89 @@ img.content {
   top: -20px;
   bottom: -20px;
 }
-@-webkit-keyframes rotate {
+@-webkit-keyframes myMove {
   0% {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: scaleX(0) scaleX(0) translateY(0px);
   }
   100% {
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: scaleX(0.9) scaleX(1.1) translateY(5px);
   }
 }
-@-webkit-keyframes page_arrow_bottom {
-  0%,
-  30% {
-    opacity: 0;
-    transform: translate(0, 20px);
-  }
-  60% {
-    opacity: 1;
-    transform: translate(0, 0);
+@-moz-keyframes myMove {
+  0% {
+    -moz-transform: scaleX(0) scaleX(0) translateY(0px);
   }
   100% {
-    opacity: 0;
-    transform: translate(0, -16px);
+    -moz-transform: scaleX(0.9) scaleX(1.1) translateY(5px);
   }
 }
-@-webkit-keyframes page_arrow_right {
-  0%,
-  30% {
-    opacity: 0;
-    transform: translate(20px, 0) rotate(-90deg);
+@keyframes myMove {
+  0% {
+    transform: scaleX(1) scaleY(1) translateY(0px);
   }
-  60% {
-    opacity: 1;
-    transform: translate(0, 0) rotate(-90deg);
+  90% {
+    transform: scaleX(0.95) scaleY(1.05) translateY(-1px);
+  }
+  95%{
+    transform: scaleX(1.02) scaleY(0.98) translateY(0px);
   }
   100% {
-    opacity: 0;
-    transform: translate(-16px, 0) rotate(-90deg);
+    transform: scaleX(1) scaleY(1) translateY(0px);
+  }
+}
+
+.loading {
+  position: fixed;
+  z-index: 150;
+  width: 100%;
+  height: 100%;
+  background: #282828;
+  .loading-wrapper {
+    position: absolute;
+    top: 38.2%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+    .icon {
+      font-size: 1.8rem;
+      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 5px 0;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        background: url(../image/p9/share-icon.png) no-repeat border-box;
+        background-size: auto 100%;
+        margin-right: 5px;
+        animation: myMove infinite 1.3s;
+      }
+    }
+    .progress {
+      width: 10rem;
+      height: 8px;
+      background: whitesmoke;
+      border: 2px solid black;
+      border-radius: 4px;
+      position: relative;
+      left: 50%;
+      margin-left: -5rem;
+      .progress-in {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        background: #04be02;
+        transition: width 1s ease-out;
+      }
+    }
   }
 }

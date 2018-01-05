@@ -21,7 +21,7 @@ var audiojs = function(src) {
 
   $music.className = "music-icon btn";
   $audio.src = src;
-  $audio.loop = false;
+  $audio.loop = true;
   document.body.appendChild($music);
   document.body.appendChild($audio);
 
