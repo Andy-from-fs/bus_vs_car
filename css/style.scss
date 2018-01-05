@@ -372,20 +372,19 @@ body {
 
 .p9 {
   position: relative;
-  .btn-share{
+  .btn-share {
     position: absolute;
-    top:64.46%;
+    top: 64.46%;
     left: 0;
   }
-  .again{
+  .again {
     position: absolute;
-    top:77.88%;
+    top: 77.88%;
     left: 0;
   }
 }
 
-
-#share{
+#share {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -393,7 +392,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   left: 0;
   top: 0;
-  .icon{
+  .icon {
     position: absolute;
     z-index: 101;
     right: 4%;
@@ -406,11 +405,11 @@ body {
   position: absolute;
   bottom: 10px;
   left: 50%;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: white;
-  width: 11rem;
+  width: 20rem;
   text-align: center;
-  margin-left: -5.5rem;
+  margin-left: -10rem;
   z-index: 10;
 }
 
@@ -433,4 +432,70 @@ img.content {
   bottom: 0;
   left: 0;
   z-index: 11;
+}
+
+/* music */
+.music-icon {
+  position: fixed;
+  width: 10%;
+  height: 10%;
+  background-image: url(../image/music-off.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  top: 3%;
+  right: 3%;
+  z-index: 100;
+  transition: background-image .5s ease-in;
+}
+.music-icon.play {
+  background-image: url(../image/music-on.png);
+  // -webkit-animation: rotate 2.3s linear infinite;
+}
+.music-icon:after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  left: -20px;
+  right: -20px;
+  top: -20px;
+  bottom: -20px;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes page_arrow_bottom {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translate(0, 20px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -16px);
+  }
+}
+@-webkit-keyframes page_arrow_right {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translate(20px, 0) rotate(-90deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(-90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-16px, 0) rotate(-90deg);
+  }
 }

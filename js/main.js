@@ -1,13 +1,15 @@
+var tech = $(".tech");
 $.fn.extend({
   //option
   animateCss: function (option) {
+    var _this = this;
     $(this).addClass(option.method);
     // console.log(option.time)
     if (typeof option.time !== "number") {
       option.time = 900;
     }
     setTimeout(function () {
-      $(this).removeClass(option.method);
+      $(_this).removeClass(option.method);
     }, 1000);
     setTimeout(function () {
       option.callBack.call(option.context);
@@ -45,7 +47,7 @@ $.fn.extend({
       setTimeout(function () {
         callBack.call(this);
       }, time);
-  }
+  },
 });
 
 if ($(window).height() > $($(".bg")[0]).height()) {
@@ -63,7 +65,7 @@ function p1Init() {
     $(".p1 .vs").removeClass("hidden");
   }, 900);
   setTimeout(function () {
-    $(".tech").removeClass("hidden");
+    tech.removeClass("hidden");
     $(".sponsor").removeClass("hidden");
   }, 1000);
   $(".start").one('click', function (e) {
@@ -73,6 +75,7 @@ function p1Init() {
       callBack: function () {
         $(".p1").addClass("hidden");
         $(".p2").removeClass("hidden");
+        audio.change(audioList[1]);
         p2Init();
       },
       context: this
@@ -87,12 +90,12 @@ $("body").on("click", ".tech", function () {
 
 //p2
 function p2Init() {
-  $(".tech").animateCss({
+  tech.animateCss({
     method: "fadeOut",
     callBack: function () {
       $(this).addClass("hidden");
     },
-    context: $(".tech")
+    context: tech
   });
   $(".p2 .car-3-wrapper .bd ul li").css(
     "width",
@@ -136,7 +139,7 @@ function p2Init() {
       callBack: function () {
         $(".p2").addClass("hidden");
         $(".p3").removeClass("hidden");
-
+        audio.change(audioList[2]);
         setTimeout(function () {
           p3Init();
         }, 800);
@@ -155,6 +158,7 @@ function p3Init() {
       callBack: function () {
         $(".p3").addClass("hidden");
         $(".p4").removeClass("hidden");
+        audio.change(audioList[3]);
         setTimeout(function () {
           p4Init();
         }, 800);
@@ -258,6 +262,7 @@ function p4Init() {
       callBack: function () {
         $(".p4").addClass("hidden");
         $(".p5").removeClass("hidden");
+        audio.change(audioList[4]);
         setTimeout(function () {
           p5Init();
         }, 800);
@@ -336,6 +341,7 @@ function p5Init() {
         $(".p5").addClass("hidden");
         $(".p6").removeClass("hidden");
         $('body').css('background-color', '#5a8b3d');
+        audio.change(audioList[5]);
         setTimeout(function () {
           p6Init();
         }, 800);
@@ -369,8 +375,8 @@ function p6Init() {
   anime({
     targets: parent + '.bus-cloud',
     translateY: -10,
-    scaleY:1.1,
-    scaleX:.9,
+    scaleY: 1.1,
+    scaleX: .9,
     elasticity: 0,
     easing: 'easeOutQuad',
     duration: 200,
@@ -380,8 +386,8 @@ function p6Init() {
   anime({
     targets: parent + '.car-cloud',
     translateY: -3,
-    scaleY:1.02,
-    scaleX:.98,
+    scaleY: 1.02,
+    scaleX: .98,
     elasticity: 0,
     easing: 'easeOutQuad',
     duration: 800,
@@ -395,6 +401,7 @@ function p6Init() {
       callBack: function () {
         $(".p6").addClass("hidden");
         $(".p7").removeClass("hidden");
+        audio.change(audioList[6]);
         p7Init();
       },
       context: this
@@ -411,6 +418,7 @@ function p7Init() {
       callBack: function () {
         $(".p7").addClass("hidden");
         $(".p8").removeClass("hidden");
+        audio.change(audioList[7]);
         setTimeout(function () {
           p8Init();
         }, 800)
@@ -462,6 +470,7 @@ function p8Init() {
       callBack: function () {
         $(".p8").addClass("hidden");
         $(".p9").removeClass("hidden");
+        audio.change(audioList[8]);
         setTimeout(function () {
           p9Init();
         }, 800)
@@ -474,6 +483,7 @@ function p8Init() {
 //p9
 function p9Init() {
   var parent = '.p9 ';
+  tech.removeClass('hidden');
   $(parent + '.btn-share').click(function () {
     $('#share').removeClass('hidden');
   })
@@ -493,7 +503,12 @@ $('body').on('click', '#share', function () {
   })
 });
 
-// p1Init();
-setTimeout(function () {
-  p6Init();
-}, 1000);
+p1Init();
+// setTimeout(function() {
+  //   p6Init();
+  // }, 1000);
+  
+  var audioList = ['./audio/P1.mp3', './audio/P2.mp3', './audio/P3.mp3', './audio/P4.mp3', './audio/P5.mp3', './audio/P6.mp3', './audio/P7.mp3', './audio/P8.mp3','./audio/P1.mp3'];
+  var audio=new audiojs(audioList[0]);
+  console.log(audio);
+  
